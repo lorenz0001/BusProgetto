@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSS-INNES</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #e8ee71);
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ffcc00;
+            color: #fff;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .bus-image {
+            width: 50%;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Benvenuto su <span style="color: #ffd700;">BUSS-INNES</span></h1>
+        <p>Accedi agli orari e alle tratte dei pullman in modo rapido e intuitivo.</p>
+        <div class="images-container">
+            <img src="bus.jpg" alt="Immagine di un pullman moderno" class="bus-image">
+        </div>
+        <!-- Il pulsante ora apre un altro sito -->
+        <a href="mappa.html" target="_blank" class="btn">Visualizza mappa</a>
+    </div>
+</body>
+</html>
