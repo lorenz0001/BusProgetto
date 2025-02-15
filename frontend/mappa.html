@@ -41,9 +41,15 @@
             font-size: 1.2em;
             cursor: pointer;
             border: none;
+            margin: 5px;
         }
         button:hover {
             background-color: #ffcc00;
+        }
+        #stop-container {
+            display: none;
+            margin-top: 10px;
+            text-align: left;
         }
     </style>
     <script>
@@ -87,8 +93,6 @@
                     { name: "San Marco In Lamis", lat: 41.7121, lng: 15.6382},
                     { name: "Cagnano Varano", lat: 41.8283, lng: 15.7720 },
                     
-                    
-                    
                 ]
             },
             "Lecce": { 
@@ -121,7 +125,6 @@
                 { name: "Trinitapoli", lat: 41.3595, lng: 16.0819 }, 
                 { name: "Bisceglie", lat: 41.2411, lng: 16.4949 },  
                 { name: "Canosa di Puglia", lat: 41.2224, lng: 16.0660 }         
-                
               ]
             }
         };
@@ -193,6 +196,11 @@
                 alert("Seleziona prima una provincia e una città.");
             }
         }
+
+        function toggleStops() {
+            const stopContainer = document.getElementById("stop-container");
+            stopContainer.style.display = stopContainer.style.display === 'block' ? 'none' : 'block';
+        }
     </script>
 </head>
 <body onload="initMap()">
@@ -215,9 +223,20 @@
             <option value="">-- Seleziona una città --</option>
         </select>
 
+            <label for="stops">Fermata:</label>
+            <select id="stops">
+                <option value="">-- Seleziona una fermata --</option>
+                <option value="Fermata 1">Fermata 1</option>
+                <option value="Fermata 2">Fermata 2</option>
+                <option value="Fermata 3">Fermata 3</option>
+            </select>
+
         <div class="button-container">
             <button onclick="confirmSelection()">Conferma Selezione</button>
+          
         </div>
+
+        
 
         <div id="map"></div>
     </div>
