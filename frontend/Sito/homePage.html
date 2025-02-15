@@ -62,6 +62,39 @@
             font-size: 2.5rem;
             font-weight: 700;
         }
+        /* Styling for buttons */
+        .btn {
+            display: inline-block;
+            color: #ffffff;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #161101;
+            color: #fff;
+        }
+        .btn-round {
+            display: inline-block;
+            color: #ffffff;
+            padding: 15px 30px;
+            margin-top: 30px; /* Spazio sopra il bottone */
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-round:hover {
+            background: #120f01;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -71,22 +104,13 @@
     </video>
     <div class="overlay"></div>
     <div class="content">
-        <h1>Benvenuto su BUSS-INNES</h1>
+        <h1>Benvenuto su <span style="color: #ffd700;">BUSS-INNES</span></h1>
         <p>Viaggiamo insieme per un trasporto più moderno, efficiente e sostenibile</p>
-        <div class="stats">
-            <div class="stat">
-                <h2>500+</h2>
-                <p>Autobus</p>
-            </div>
-            <div class="stat">
-                <h2>1000+</h2>
-                <p>Dipendenti</p>
-            </div>
-            <div class="stat">
-                <h2>Milioni</h2>
-                <p>di passeggeri serviti</p>
-            </div>
-        </div>
+        
+            
+        <!-- Pulsanti aggiunti -->
+        <a href="mappa.html" target="_blank" class="btn">Visualizza mappa</a>
+        <a href="chi siamo.html" target="_blank" class="btn-round">Chi siamo</a>
     </div>
 </body>
 </html>

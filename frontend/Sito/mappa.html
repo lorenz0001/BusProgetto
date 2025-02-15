@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona Provincia e Città - Puglia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #52524b, #272323);
+            color: white;
+        }
+        select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 200px;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #0c0c0c;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #121212e0;
+        }
+        #stop-container {
+            display: none;
+            margin-top: 10px;
+            text-align: left;
+        }
+        #homeButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #0c0c0c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+        }
+        #homeButton:hover {
+            background-color: #121212e0;
+
+        }
+    </style>
+    <script>
+        const provinceCities = {
+            "Bari": { 
+                cities: [
+                    { name: "Bari", lat: 41.1252, lng: 16.8666 },
+                    { name: "Bitonto", lat: 41.1166, lng: 16.6833 },
+                    { name: "Molfetta", lat: 41.2000, lng: 16.6000 },
+                    { name: "Triggiano", lat: 41.0655, lng: 16.9250 },
+                    { name: "Altamura", lat: 40.8166, lng: 16.5499 },
+                    { name: "Modugno", lat: 41.0945, lng: 16.7959 },  
+                    { name: "Monopoli", lat: 40.9570, lng: 17.2904}, 
+
+                ]
+            },
+            "Brindisi": { 
+                cities: [
+                    { name: "Brindisi", lat: 40.6322, lng: 17.9361 },
+                    { name: "Ostuni", lat: 40.7248, lng: 17.5792 },
+                    { name: "Francavilla Fontana", lat: 40.5312, lng: 17.5852 },
+                    { name: "Mesagne", lat: 40.5585, lng: 17.8077 },
+                    { name: "Carovigno", lat: 40.7063, lng: 17.6585 },
+                    { name: "Fasano", lat: 40.8381, lng: 17.3584 },
+
+                ]
+            },
+            "Foggia": { 
+                cities: [
+                    { name: "Foggia", lat: 41.4617, lng: 15.5450 },
+                    { name: "San Giovanni Rotondo", lat: 41.7064, lng: 15.7277 },
+                    { name: "Manfredonia", lat: 41.6333, lng: 15.9166 },
+                    { name: "Lucera", lat: 41.5055, lng: 15.3391 },
+                    { name: "Cerignola", lat: 41.2666, lng: 15.9000 },
+                    { name: "San Severo", lat: 41.6833, lng: 15.3833 },
+                    { name: "Ortanova", lat: 41.3288, lng: 15.7099 },
+                    { name: "Torremaggiore", lat: 41.6912, lng: 15.2940 },
+                    { name: "San Nicandro Garganico", lat: 41.8349, lng: 15.5687 },
+                    { name: "Vieste", lat: 41.8821, lng: 16.1714 },
+                    { name: "Apricena", lat: 41.7862, lng: 15.4439 },
+                    { name: "San Marco In Lamis", lat: 41.7121, lng: 15.6382},
+                    { name: "Cagnano Varano", lat: 41.8283, lng: 15.7720 },
+                    
+                ]
+            },
+            "Lecce": { 
+                cities: [
+                    { name: "Lecce", lat: 40.3491, lng: 18.1720 },
+                    { name: "Gallipoli", lat: 40.0558, lng: 17.9926 },
+                    { name: "Otranto", lat: 40.1479, lng: 18.4868 },
+                    { name: "Nardò", lat: 40.1795, lng: 18.0317 },
+                    { name: "Galatina", lat: 40.1742, lng: 18.1703 },
+                    { name: "Copertino", lat: 40.2682, lng: 18.0543 },
+                    { name: "Tricase", lat: 39.9301, lng: 18.3542 },
+                ]
+            },
+            "Taranto": { 
+                cities: [
+                    { name: "Taranto", lat: 40.4666, lng: 17.2333 },
+                    { name: "Grottaglie", lat: 40.5369, lng: 17.4372 },
+                    { name: "Martina Franca", lat: 40.7028, lng: 17.3392 },
+                    { name: "Massafra", lat: 40.5862, lng: 17.1164 },
+                    { name: "Ginosa", lat: 40.5769, lng: 16.7565 },
+
+                ]
+            },
+            "BAT": { 
+             cities: [
+                { name: "Barletta", lat: 41.3166, lng: 16.2833 },   
+                { name: "Andria", lat: 41.2306, lng: 16.2932 },     
+                { name: "Trani", lat: 41.2666, lng: 16.4166 },      
+                { name: "Margherita di Savoia", lat: 41.3717, lng: 16.1527 },   
+                { name: "Trinitapoli", lat: 41.3595, lng: 16.0819 }, 
+                { name: "Bisceglie", lat: 41.2411, lng: 16.4949 },  
+                { name: "Canosa di Puglia", lat: 41.2224, lng: 16.0660 }         
+              ]
+            }
+        };
+
+        let map;
+        let marker;
+
+        function initMap() {
+            map = L.map('map').setView([41.7103, 15.8352], 10); // Posizione iniziale su San Giovanni Rotondo
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            marker = L.marker([41.7103, 15.8352]).addTo(map); // Marker iniziale su San Giovanni Rotondo
+        }
+
+        function updateCities() {
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("cities");
+            const selectedProvince = provinceSelect.value;
+
+            citySelect.innerHTML = "<option value=''>-- Seleziona una città --</option>";
+
+            if (selectedProvince) {
+                const citiesData = provinceCities[selectedProvince];
+                citiesData.cities.forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city.name;
+                    option.textContent = city.name;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateMap() {
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("cities");
+            const selectedProvince = provinceSelect.value;
+            const selectedCity = citySelect.value;
+
+            if (selectedCity && selectedProvince) {
+                const citiesData = provinceCities[selectedProvince];
+                const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+
+                if (selectedCityData) {
+                    map.setView([selectedCityData.lat, selectedCityData.lng], 12);  // Aggiorna il centro sulla città selezionata
+                    marker.setLatLng([selectedCityData.lat, selectedCityData.lng]);  // Posiziona il marker sulla città selezionata
+                    marker.bindPopup("Comune di " + selectedCity).openPopup(); // Mostra il nome del comune nel popup del marker
+                }
+            }
+        }
+
+        function confirmSelection() {
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("cities");
+            const selectedProvince = provinceSelect.value;
+            const selectedCity = citySelect.value;
+
+            if (selectedCity && selectedProvince) {
+                const citiesData = provinceCities[selectedProvince];
+                const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+
+                if (selectedCityData) {
+                    map.setView([selectedCityData.lat, selectedCityData.lng], 12); // Vista centrata sulla città
+                    marker.setLatLng([selectedCityData.lat, selectedCityData.lng]); // Spostamento marker
+                    marker.bindPopup("Comune di " + selectedCity).openPopup();
+                    alert("Mappa aggiornata sulla città di " + selectedCity + " in provincia di " + selectedProvince);
+                }
+            } else {
+                alert("Seleziona prima una provincia e una città.");
+            }
+        }
+
+        function toggleStops() {
+            const stopContainer = document.getElementById("stop-container");
+            stopContainer.style.display = stopContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function goHome() {
+            window.location.href = "homePage.html"; 
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <button id="homeButton" onclick="goHome()">Torna alla Home</button>
+    <div class="container">
+        <h1>Seleziona una Provincia e una Città</h1>
+
+        <label for="province">Provincia:</label>
+        <select id="province" onchange="updateCities()">
+            <option value="">-- Seleziona una provincia --</option>
+            <option value="Bari">Bari</option>
+            <option value="Brindisi">Brindisi</option>
+            <option value="Foggia">Foggia</option>
+            <option value="Lecce">Lecce</option>
+            <option value="Taranto">Taranto</option>
+            <option value ="BAT">BAT</option>
+        </select>
+
+        <label for="cities">Città:</label>
+        <select id="cities" onchange="updateMap()">
+            <option value="">-- Seleziona una città --</option>
+        </select>
+
+        <label for="stops">Fermata:</label>
+        <select id="stops">
+            <option value="">-- Seleziona una fermata --</option>
+            <option value="Fermata 1">Fermata 1</option>
+            <option value="Fermata 2">Fermata 2</option>
+            <option value="Fermata 3">Fermata 3</option>
+        </select>
+
+        <div class="button-container">
+            <button onclick="confirmSelection()">Conferma Selezione</button>
+        </div>
+
+        <div id="map"></div>
+    </div>
+</body>
+</html>

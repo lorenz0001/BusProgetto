@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Imposta l'altezza a 100vh per la pagina intera */
+            overflow: hidden; /* Disabilita lo scorrimento */
+            background-image: url('bus.jpg'); /* Immagine di sfondo */
+            background-size: cover; /* Copre l'intera pagina */
+            background-position: center; /* Centra l'immagine */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Sovrapposizione trasparente */
+            z-index: 1;
+            filter: blur(8px); /* Applica sfocatura all'immagine */
+        }
+
+        header {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            height: 100%; /* L'altezza della sezione header occupa tutta la pagina */
+            background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per migliorare la visibilità del testo */
+        }
+
+        header h1 {
+            font-size: 32px; /* Modifica la dimensione del font per adattarsi meglio */
+            font-weight: 700;
+            color: white; /* Testo in bianco */
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Aggiungi ombra al testo */
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #0c0c0c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            z-index: 3; /* Pone il bottone sopra */
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px; /* Limita la larghezza per adattarsi meglio alla pagina */
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            color: white; /* Testo in bianco */
+        }
+
+        .section-header {
+            margin-bottom: 30px; /* Ridotto lo spazio tra le sezioni */
+        }
+
+        .section-header p {
+            font-size: 18px; /* Adattato il testo per una visualizzazione ottimale */
+            color: #fff; /* Colore del testo in bianco */
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-trasparente nero */
+            border-radius: 10px;
+            margin-top: 30px; /* Ridotto il margine per far entrare tutto nella pagina */
+            text-align: left;
+            color: #fff; /* Testo in bianco */
+        }
+
+        .content h3 {
+            font-size: 22px; /* Adattata la dimensione per contenere meglio il testo */
+            font-weight: 600;
+            margin-bottom: 15px; /* Ridotto margine */
+        }
+
+        .content p {
+            font-size: 16px; /* Adattato il font per una buona leggibilità */
+            color: #fff; /* Colore del testo in bianco */
+            line-height: 1.6;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+            color: #fff; /* Colore del testo in bianco */
+        }
+
+        .content ul li {
+            font-size: 16px; /* Ridotto la dimensione per una lettura ottimale */
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px; /* Ridotto margine per far entrare tutto nella pagina */
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 0;
+        }
+        .text{
+            font-size: 5px;
+        }
+        li{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+<script>
+    // Funzione che redirige alla home page
+    function goHome() {
+        window.location.href = "homePage.html"; 
+    }
+</script>
+
+<header>
+    <button class="home-button" onclick="goHome()">Torna alla Home</button>
+    <h1>Chi Siamo?</h1>
+
+
+<div class="container">
+    <section class="section-header">
+        <p>Benvenuti nel nostro mondo!</p>
+        <p>Offriamo soluzioni di trasporto moderne, sicure e sostenibili, progettate per soddisfare le esigenze di ogni viaggiatore.</p>
+    </section>
+
+    <section class="section-header">
+        <p>Chi Siamo</p>
+        <p>Siamo un'azienda di trasporti nata dall'idea di un gruppo di studenti delle scuole superiori con la passione per la logistica, la tecnologia e l'innovazione. Il nostro obiettivo è offrire soluzioni di trasporto efficienti, sostenibili e accessibili a tutti, con particolare attenzione alla sicurezza e alla puntualità.</p>
+    </section>
+
+    <section class="section-header">
+        <p>La Nostra Missione</p>
+        <p>Offrire servizi di trasporto moderni ed ecologici, utilizzando tecnologie avanzate per migliorare l'efficienza e ridurre l'impatto ambientale. Crediamo nella mobilità sostenibile e nella creazione di soluzioni intelligenti per facilitare gli spostamenti di persone e merci.</p>
+    </section>
+
+    <section class="section-header">
+        <p>Perché Sceglierci</p>
+        <p>Giovani, dinamici e innovativi</p>
+        <ul>
+            <li>✅ Servizio affidabile e puntuale</li>
+            <li>✅ Focus sulla sostenibilità e l’efficienza</li>
+            <li>✅ Attenzione alle esigenze dei clienti</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="#">Servizio Clienti</a>
+        <a href="#" style="margin-left: 20px;">Forum</a>
+    </div>
+</div>
+
+
+</header>
+</body>
+</html>
