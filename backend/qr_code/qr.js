@@ -14,8 +14,12 @@ app.get('/:name', (req, res) => {
     if(name == "null" || !codici.includes(name)){
         res.send("<center><h1>Il codice della fermata non esiste</h1></center>");
     } else {
-        res.sendFile("C:/Users/filof_x9l28ad/Desktop/pcto/sito_locale/mappa.html");
+        const filePath = path.resolve(__dirname, '..', 'sito_locale', 'mappa.html');  //indirizzo assoluto
+        
+        res.sendFile(filePath)
     }
 });
 
 
+
+//          >w<
