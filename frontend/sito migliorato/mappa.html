@@ -8,11 +8,12 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right,#494949,#1D1D1D );
-            color: white;
+            height: 100vh;
+            overflow: hidden;
+            background: rgb(0,0,0);
+            background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(16, 16, 16) 78%, rgb(19, 19, 19) 91%);
         }
         select {
             margin: 10px 0;
@@ -33,11 +34,13 @@
             margin-top: 20px;
         }
         button {
+            font-family: Helvetica;
             background-color: #151515;
             color: #ffffff;
             padding: 12px 25px;
             border-radius: 8px;
             font-size: 1.2em;
+            box-shadow: 0 0 0 2px #ffffff;
             cursor: pointer;
             border: none;
             margin: 5px;
@@ -52,6 +55,7 @@
             text-align: left;
         }
         #homeButton {
+            font-family: Helvetica;
             position: absolute;
             top: 20px;
             left: 20px;
@@ -67,9 +71,14 @@
             background-color: #202020;
         }
         h1{
+            margin-top: 40px;
+            font-family:Helvetica;
+            color: #ffffff;
             font-size: 50px;
         }
         label{
+            font-family:Helvetica;
+            color: #ffffff;
             font-size: 18px;
         }
         select{
