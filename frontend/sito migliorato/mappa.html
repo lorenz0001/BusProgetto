@@ -166,7 +166,42 @@
 
         let map;
         let marker;
-
+        const cityStops = {
+        "San Giovanni Rotondo": [
+          { name: "Viale Cappuccini 101 ", lat: 41.7081, lng: 15.7093},
+          { name: "Piazza Europa 29 ", lat: 41.7069, lng: 15.7245},
+          { name: "Piazzale Forgione ", lat: 41.7079, lng: 15.7076},
+          { name: "Viale Aldo Moro 161", lat: 41.7095, lng: 15.7100 },
+          { name: "Viale Aldo Moro 136", lat: 41.7090, lng: 15.7090 },
+          { name: "Viale Aldo Moro 5", lat: 41.7080, lng: 15.7050 },
+          { name: "Via Foggia 255 (Hotel Mir)", lat: 41.7070, lng: 15.7020 },
+          { name: "Corso Roma 140 ", lat: 41.7026, lng: 15.7269},
+          { name: "Corso Roma 124 ", lat: 41.7035, lng: 15.7258},
+          { name: "Corso Roma 92 ", lat: 41.7051, lng: 15.7255},
+          { name: "Piazza Europa 8 ", lat: 41.7073, lng: 15.7243},
+          { name: "Corso Matteotti 20 ", lat: 41.7071, lng: 15.7294},
+          { name: "Corso Matteotti 20 ", lat: 41.7071, lng: 15.7294},
+          { name: "Corso Roma 166 ", lat: 41.7016, lng: 15.7298}
+        ],
+        "Foggia": [
+          { name: "Piazza Vittorio Veneto", lat: 41.465225, lng: 15.555756 },
+          { name: "Foggia Aeroporto Gino Lisa", lat: 41.433907, lng: 15.544482 },
+          { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 }
+        ],
+        "Lecce": [
+          { name: "Lecce Bus Station (Terminal)", lat: 40.3530, lng: 18.1750 },
+          { name: "Centro Storico – Via del Duomo", lat: 40.3540, lng: 18.1740 }
+        ],
+        "Manfredonia": [
+          { name: "Piazza Cavour", lat: 41.6340, lng: 15.9155 },
+          { name: "Via Napoli", lat: 41.6330, lng: 15.9170 }
+        ],
+        "Bari": [
+          { name: "Bari Bus Terminal (Centro)", lat: 41.1170, lng: 16.8710 },
+          { name: "Bari – Aeroporto", lat: 41.1389, lng: 16.7592 },
+          { name: "Bari – Via Venezia", lat: 41.1200, lng: 16.8700 }
+        ]
+      };
         function initMap() {
             map = L.map('map').setView([41.7103, 15.8352], 10); // Posizione iniziale su San Giovanni Rotondo
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -192,24 +227,47 @@
                 });
             }
         }
+        function updateStops() {
+          const citySelect = document.getElementById("cities");
+          const stopsSelect = document.getElementById("stops");
+          const selectedCity = citySelect.value;
+          stopsSelect.innerHTML = "<option value=''>-- Seleziona una fermata --</option>";
+          if (selectedCity && cityStops[selectedCity]) {
+          
+              cityStops[selectedCity].forEach(stop => {
 
-        function updateMap() {
-            const provinceSelect = document.getElementById("province");
-            const citySelect = document.getElementById("cities");
-            const selectedProvince = provinceSelect.value;
-            const selectedCity = citySelect.value;
+                  const option = document.createElement("option");
+                  option.value = stop.name;
+                  option.textContent = stop.name;
+                  option.setAttribute("data-lat", stop.lat);
+                  option.setAttribute("data-lng", stop.lng);
+                  stopsSelect.appendChild(option);
+              });
+          }
+      }
 
-            if (selectedCity && selectedProvince) {
-                const citiesData = provinceCities[selectedProvince];
-                const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+      function updateMap() {
+          const provinceSelect = document.getElementById("province");
+          const citySelect = document.getElementById("cities");
+          const stopSelect = document.getElementById("stops");
+          const selectedProvince = provinceSelect.value;
+          const selectedCity = citySelect.value;
+          const selectedStop = stopSelect.value;
 
-                if (selectedCityData) {
-                    map.setView([selectedCityData.lat, selectedCityData.lng], 12);  // Aggiorna il centro sulla città selezionata
-                    marker.setLatLng([selectedCityData.lat, selectedCityData.lng]);  // Posiziona il marker sulla città selezionata
-                    marker.bindPopup("Comune di " + selectedCity).openPopup(); // Mostra il nome del comune nel popup del marker
-                }
-            }
-        }
+          if (selectedCity && selectedProvince && selectedStop) {
+              const citiesData = provinceCities[selectedProvince];
+              const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+              const stopsData = cityStops[selectedCityData.name].find(stop => stop.name === selectedStop );
+
+              if (stopsData) {
+                  map.setView([stopsData.lat, stopsData.lng], 12);  // Aggiorna il centro sulla città selezionata
+                  marker.setLatLng([stopsData.lat, stopsData.lng]);  // Posiziona il marker sulla città selezionata
+                  marker.bindPopup("Comune di " + selectedCity).openPopup();
+              }
+          }
+          // Aggiorna le fermate quando la città viene cambiata
+          //updateStops();
+      }
 
         function confirmSelection() {
             const provinceSelect = document.getElementById("province");
@@ -248,27 +306,24 @@
         <h1>Seleziona una Provincia e una Città</h1>
 
         <label for="province">Provincia:</label>
-        <select id="province" onchange="updateCities()">
-            <option value="">-- Seleziona una provincia --</option>
-            <option value="Bari">Bari</option>
-            <option value="Brindisi">Brindisi</option>
-            <option value="Foggia">Foggia</option>
-            <option value="Lecce">Lecce</option>
-            <option value="Taranto">Taranto</option>
-            <option value ="BAT">BAT</option>
-        </select>
+      <select id="province" onchange="updateCities()">
+          <option value="">-- Seleziona una provincia --</option>
+          <option value="Bari">Bari</option>
+          <option value="Brindisi">Brindisi</option>
+          <option value="Foggia">Foggia</option>
+          <option value="Lecce">Lecce</option>
+          <option value="Taranto">Taranto</option>
+          <option value="BAT">BAT</option>
+      </select>
 
         <label for="cities">Città:</label>
-        <select id="cities" onchange="updateMap()">
-            <option value="">-- Seleziona una città --</option>
-        </select>
+      <select id="cities" onchange="updateStops()">
+          <option value="">-- Seleziona una città --</option>
+      </select>
 
         <label for="stops">Fermata:</label>
-        <select id="stops">
+        <select id="stops" onchange="updateMap()">
             <option value="">-- Seleziona una fermata --</option>
-            <option value="Fermata 1">Fermata 1</option>
-            <option value="Fermata 2">Fermata 2</option>
-            <option value="Fermata 3">Fermata 3</option>
         </select>
 
         <div class="button-container">
