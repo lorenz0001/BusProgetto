@@ -36,24 +36,25 @@
         }
 
         header h1 {
-            font-family: 'Sans serif';
+            font-family: Helvetica;
             font-size: 32px;
             color: #E7B51E;
             margin-top: 10px;
         }
 
         .home-button {
+            font-family: Helvetica;
             position: absolute;
             top: 20px;
             left: 20px;
+            box-shadow: 0 0 0 2px #ffffff;
             background-color: #151515;
             color: white;
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 18px;
             font-size: 1em;
             cursor: pointer;
             border: none;
-            z-index: 3;
         }
 
         .home-button:hover {
@@ -61,19 +62,20 @@
         }
 
         .button{
+            font-family: Helvetica;
             background-color: #151515;
             color: #ffffff;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 18px;
             font-size: 1.2em;
             cursor: pointer;
+            box-shadow: 0 0 0 2px #ffffff;
             border: none;
             margin: 5px;
         }
 
         .button:hover{
             background-color: #202020;
-            color: #fff;
         }
 
         .container {
@@ -93,6 +95,7 @@
         }
 
         .section-header p {
+            font-family: Helvetica;
             font-size: 18px;
             color: #fff;
             line-height: 1.6;
@@ -109,16 +112,7 @@
         .text{
             font-size: 5px;
         }
-        li{
-            list-style-type: none;
-        }
 
-        h2{
-            font-size: 28px;
-            color: white; 
-            margin: 0;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -138,8 +132,6 @@
 
 <header>
     <button class="home-button" onclick="goHome()">Torna alla Home</button>
-    <h2>CHI SIAMO?</h2>
-
 
 <div class="container">
     <section class="section-header">
