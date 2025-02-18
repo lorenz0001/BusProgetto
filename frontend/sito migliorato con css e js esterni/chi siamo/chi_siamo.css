@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('bus.jpg'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-family: Helvetica;
+    font-size: 32px;
+    color: #E7B51E;
+    margin-top: 10px;
+}
+
+.home-button {
+    font-family: Helvetica;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 0 0 2px #ffffff;
+    background-color: #151515;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 18px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+}
+
+.home-button:hover {
+    background-color: #202020;
+}
+
+.button{
+    font-family: Helvetica;
+    background-color: #151515;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 18px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #ffffff;
+    border: none;
+    margin: 5px;
+}
+
+.button:hover{
+    background-color: #202020;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    color: white; 
+}
+
+.section-header {
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.section-header p {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.content {
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px; 
+    text-align: left;
+    color: #fff;
+}
+
+.text{
+    font-size: 5px;
+}
