@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona Provincia e Città - Puglia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="/mappa/mappa.css">
+
+    <script type="text/javascript" src="mappa.js"></script>
+</head>
+<body onload="initMap()">
+    <button id="homeButton" onclick="goHome()">Torna alla Home</button>
+    <div class="container">
+        <h1>Seleziona una Provincia e una Città</h1>
+
+        <label for="province">Provincia:</label>
+      <select id="province" onchange="updateCities()">
+          <option value="">-- Seleziona una provincia --</option>
+          <option value="Bari">Bari</option>
+          <option value="Brindisi">Brindisi</option>
+          <option value="Foggia">Foggia</option>
+          <option value="Lecce">Lecce</option>
+          <option value="Taranto">Taranto</option>
+          <option value="BAT">BAT</option>
+      </select>
+
+        <label for="cities">Città:</label>
+      <select id="cities" onchange="updateStops()">
+          <option value="">-- Seleziona una città --</option>
+      </select>
+
+        <label for="stops">Fermata:</label>
+        <select id="stops" onchange="updateMap()">
+            <option value="">-- Seleziona una fermata --</option>
+        </select>
+
+        <div class="button-container">
+            <button onclick="confirmSelection()">Conferma Selezione</button>
+        </div>
+
+        <div id="map"></div>
+    </div>
+</body>
+</html>
