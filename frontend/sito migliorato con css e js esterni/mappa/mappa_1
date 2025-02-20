@@ -1,0 +1,232 @@
+const provinceCities = {
+    "Bari": { 
+        cities: [
+            { name: "Bari", lat: 41.1252, lng: 16.8666 },
+            { name: "Bitonto", lat: 41.1166, lng: 16.6833 },
+            { name: "Molfetta", lat: 41.2000, lng: 16.6000 },
+            { name: "Triggiano", lat: 41.0655, lng: 16.9250 },
+            { name: "Altamura", lat: 40.8166, lng: 16.5499 },
+            { name: "Modugno", lat: 41.0945, lng: 16.7959 },  
+            { name: "Monopoli", lat: 40.9570, lng: 17.2904}, 
+
+        ]
+    },
+    "Brindisi": { 
+        cities: [
+            { name: "Brindisi", lat: 40.6322, lng: 17.9361 },
+            { name: "Ostuni", lat: 40.7248, lng: 17.5792 },
+            { name: "Francavilla Fontana", lat: 40.5312, lng: 17.5852 },
+            { name: "Mesagne", lat: 40.5585, lng: 17.8077 },
+            { name: "Carovigno", lat: 40.7063, lng: 17.6585 },
+            { name: "Fasano", lat: 40.8381, lng: 17.3584 },
+
+        ]
+    },
+    "Foggia": { 
+        cities: [
+            { name: "Foggia", lat: 41.4617, lng: 15.5450 },
+            { name: "San Giovanni Rotondo", lat: 41.7064, lng: 15.7277 },
+            { name: "Manfredonia", lat: 41.6333, lng: 15.9166 },
+            { name: "Lucera", lat: 41.5055, lng: 15.3391 },
+            { name: "Cerignola", lat: 41.2666, lng: 15.9000 },
+            { name: "San Severo", lat: 41.6833, lng: 15.3833 },
+            { name: "Ortanova", lat: 41.3288, lng: 15.7099 },
+            { name: "Torremaggiore", lat: 41.6912, lng: 15.2940 },
+            { name: "San Nicandro Garganico", lat: 41.8349, lng: 15.5687 },
+            { name: "Vieste", lat: 41.8821, lng: 16.1714 },
+            { name: "Apricena", lat: 41.7862, lng: 15.4439 },
+            { name: "San Marco In Lamis", lat: 41.7121, lng: 15.6382},
+            { name: "Cagnano Varano", lat: 41.8283, lng: 15.7720 },
+            
+        ]
+    },
+    "Lecce": { 
+        cities: [
+            { name: "Lecce", lat: 40.3491, lng: 18.1720 },
+            { name: "Gallipoli", lat: 40.0558, lng: 17.9926 },
+            { name: "Otranto", lat: 40.1479, lng: 18.4868 },
+            { name: "Nardò", lat: 40.1795, lng: 18.0317 },
+            { name: "Galatina", lat: 40.1742, lng: 18.1703 },
+            { name: "Copertino", lat: 40.2682, lng: 18.0543 },
+            { name: "Tricase", lat: 39.9301, lng: 18.3542 },
+        ]
+    },
+    "Taranto": { 
+        cities: [
+            { name: "Taranto", lat: 40.4666, lng: 17.2333 },
+            { name: "Grottaglie", lat: 40.5369, lng: 17.4372 },
+            { name: "Martina Franca", lat: 40.7028, lng: 17.3392 },
+            { name: "Massafra", lat: 40.5862, lng: 17.1164 },
+            { name: "Ginosa", lat: 40.5769, lng: 16.7565 },
+
+        ]
+    },
+    "BAT": { 
+     cities: [
+        { name: "Barletta", lat: 41.3166, lng: 16.2833 },   
+        { name: "Andria", lat: 41.2306, lng: 16.2932 },     
+        { name: "Trani", lat: 41.2666, lng: 16.4166 },      
+        { name: "Margherita di Savoia", lat: 41.3717, lng: 16.1527 },   
+        { name: "Trinitapoli", lat: 41.3595, lng: 16.0819 }, 
+        { name: "Bisceglie", lat: 41.2411, lng: 16.4949 },  
+        { name: "Canosa di Puglia", lat: 41.2224, lng: 16.0660 }         
+      ]
+    }
+};
+
+let map;
+let marker;
+const cityStops = {
+"San Giovanni Rotondo": [
+  { name: "Viale Cappuccini 101 ", lat: 41.7081, lng: 15.7093},
+  { name: "Piazza Europa 29 ", lat: 41.7069, lng: 15.7245},
+  { name: "Piazzale Forgione ", lat: 41.7079, lng: 15.7076},
+  { name: "Viale Aldo Moro 161", lat: 41.7095, lng: 15.7100 },
+  { name: "Viale Aldo Moro 136", lat: 41.7090, lng: 15.7090 },
+  { name: "Viale Aldo Moro 5", lat: 41.7080, lng: 15.7050 },
+  { name: "Via Foggia 255 (Hotel Mir)", lat: 41.7070, lng: 15.7020 },
+  { name: "Corso Roma 140 ", lat: 41.7026, lng: 15.7269},
+  { name: "Corso Roma 124 ", lat: 41.7035, lng: 15.7258},
+  { name: "Corso Roma 92 ", lat: 41.7051, lng: 15.7255},
+  { name: "Piazza Europa 8 ", lat: 41.7073, lng: 15.7243},
+  { name: "Corso Matteotti 20 ", lat: 41.7071, lng: 15.7294},
+  { name: "Corso Matteotti 20 ", lat: 41.7071, lng: 15.7294},
+  { name: "Corso Roma 166 ", lat: 41.7016, lng: 15.7298}
+],
+"Foggia": [
+  { name: "Piazza Vittorio Veneto", lat: 41.465225, lng: 15.555756 },
+  { name: "Foggia Aeroporto Gino Lisa", lat: 41.433907, lng: 15.544482 },
+  { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 },
+  { name: "Via Umberto Garofalo", lat: 41.460912, lng: 15.549300 },
+  { name: "Viale Michelangelo", lat: 41.456214, lng: 15.559519 },
+  { name: "Via Napoli (Ospedale Civile)", lat: 41.454972, lng: 15.525877 },
+  { name: "Via Manfredonia (sede Polizia Provinciale )", lat: 41.482478, lng: 15.560085},
+  { name: "Via Montegrappa 40 (deposito SITA)", lan: 41.463445, lng: 15.556866},
+],
+"Lecce": [
+  { name: "Lecce Bus Station (Terminal)", lat: 40.3530, lng: 18.1750 },
+  { name: "Centro Storico – Via del Duomo", lat: 40.3540, lng: 18.1740 },
+  { name: "Piazza Muratore Francesco 1 (Ospedale V. Fazzi)", lat: 40.331780, lng: 18.158432},
+  { name: "Via Don Bosco", lat: 40.346708, lng: 18.166274},
+  { name: "Lecce Terminal City", lat: 40.362950, lng: 18.168430},
+  { name: "City Terminal Piazza Carmelo bene", lat: 40.362112, lng: 18.167727},
+  { name: "Viale Otranto 1 (Questura)", lat: 40.346838, lng: 18.171206},
+  { name: "Viale Oronzo Quarta", lat: 40.346377, lng: 18.166392}
+],
+"Manfredonia": [
+  { name: "Piazza Cavour", lat: 41.6340, lng: 15.9155 },
+  { name: "Via Napoli", lat: 41.6330, lng: 15.9170 },
+  { name: "PIAZZA DELLA LIBERTA'", lat: 41.623195, lng: 15.907353 },
+  { name: "VIA TRIBUNA 16", lat: 41.628407, lng: 15.914610 },
+  { name: "Via della Transumanza", lat: 41.635239, lng: 15.900518 },
+  { name: "Via Gargano", lat: 41.636910, lng: 15.925743 },
+  { name: "Piazza Marconi", lat: 41.626514, lng: 15.913463 },
+  { name: "Via Scaloria", lat: 41.635505, lng: 15.911222 },
+],
+"San Marco In Lamis": [
+  { name: "Via S. Nicandro", lat: 41.715264, lng: 15.635379 },
+  { name: "Piazza Europa", lat: 41.711428, lng: 15.634779 },
+  { name: "Via Gian Battista Vico", lat: 41.712041, lng: 15.640573 },
+],
+"Bari": [
+  { name: "Bari Bus Terminal (Centro)", lat: 41.1170, lng: 16.8710 },
+  { name: "Bari – Aeroporto", lat: 41.1389, lng: 16.7592 },
+  { name: "Bari – Via Venezia", lat: 41.1200, lng: 16.8700 }
+]
+};
+function initMap() {
+    map = L.map('map').setView([41.7064, 15.7277], 10); // Posizione iniziale su San Giovanni Rotondo
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    marker = L.marker([41.7064, 15.7277]).addTo(map); // Marker iniziale su San Giovanni Rotondo
+}
+
+function updateCities() {
+    const provinceSelect = document.getElementById("province");
+    const citySelect = document.getElementById("cities");
+    const selectedProvince = provinceSelect.value;
+
+    citySelect.innerHTML = "<option value=''>-- Seleziona una città --</option>";
+
+    if (selectedProvince) {
+        const citiesData = provinceCities[selectedProvince];
+        citiesData.cities.forEach(city => {
+            const option = document.createElement("option");
+            option.value = city.name;
+            option.textContent = city.name;
+            citySelect.appendChild(option);
+        });
+    }
+}
+function updateStops() {
+  const citySelect = document.getElementById("cities");
+  const stopsSelect = document.getElementById("stops");
+  const selectedCity = citySelect.value;
+  stopsSelect.innerHTML = "<option value=''>-- Seleziona una fermata --</option>";
+  if (selectedCity && cityStops[selectedCity]) {
+  
+      cityStops[selectedCity].forEach(stop => {
+
+          const option = document.createElement("option");
+          option.value = stop.name;
+          option.textContent = stop.name;
+          option.setAttribute("data-lat", stop.lat);
+          option.setAttribute("data-lng", stop.lng);
+          stopsSelect.appendChild(option);
+      });
+  }
+}
+
+function updateMap() {
+  const provinceSelect = document.getElementById("province");
+  const citySelect = document.getElementById("cities");
+  const stopSelect = document.getElementById("stops");
+  const selectedProvince = provinceSelect.value;
+  const selectedCity = citySelect.value;
+  const selectedStop = stopSelect.value;
+
+  if (selectedCity && selectedProvince && selectedStop) {
+      const citiesData = provinceCities[selectedProvince];
+      const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+      const stopsData = cityStops[selectedCityData.name].find(stop => stop.name === selectedStop );
+
+      if (stopsData) {
+          map.setView([stopsData.lat, stopsData.lng], 18);  // Aggiorna il centro sulla città selezionata
+          marker.setLatLng([stopsData.lat, stopsData.lng]);  // Posiziona il marker sulla città selezionata
+          marker.bindPopup("Comune di " + selectedCity).openPopup();
+      }
+  }
+  // Aggiorna le fermate quando la città viene cambiata
+  //updateStops();
+}
+
+function confirmSelection() {
+    const provinceSelect = document.getElementById("province");
+    const citySelect = document.getElementById("cities");
+    const selectedProvince = provinceSelect.value;
+    const selectedCity = citySelect.value;
+
+    if (selectedCity && selectedProvince) {
+        const citiesData = provinceCities[selectedProvince];
+        const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
+
+        if (selectedCityData) {
+            map.setView([selectedCityData.lat, selectedCityData.lng], 12); // Vista centrata sulla città
+            marker.setLatLng([selectedCityData.lat, selectedCityData.lng]); // Spostamento marker
+            marker.bindPopup("Comune di " + selectedCity).openPopup();
+            alert("Mappa aggiornata sulla città di " + selectedCity + " in provincia di " + selectedProvince);
+        }
+    } else {
+        alert("Seleziona prima una provincia e una città.");
+    }
+}
+
+function toggleStops() {
+    const stopContainer = document.getElementById("stop-container");
+    stopContainer.style.display = stopContainer.style.display === 'block' ? 'none' : 'block';
+}
+
+function goHome() {
+    window.location.href = "/homePage/homePage.html"; 
+}
