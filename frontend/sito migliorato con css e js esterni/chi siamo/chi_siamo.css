@@ -1,106 +1,63 @@
 body {
+    background: linear-gradient(to right, #141E30, #243B55);
+    color: white;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    opacity: 90%;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
-    background-image: url('bus.jpg'); 
-    background-size: cover; 
-    background-position: center;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
-    z-index: 1;
-}
-
-header {
-    position: relative;
-    z-index: 2;
     text-align: center;
+}
+.container {
+    padding: 50px;
+}
+.section-header {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
     padding: 20px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
-
-header h1 {
-    font-family: Helvetica;
-    font-size: 32px;
-    color: #E7B51E;
-    margin-top: 10px;
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+    color:#E7B51E;
 }
-
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+.button-container {
+    margin-top: 20px;
+}
+.button {
+    background: #E7B51E;
+    color: #141E30;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+.button:hover {
+    background: #FFD700;
+}
 .home-button {
-    font-family: Helvetica;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 18px;
     position: absolute;
     top: 20px;
     left: 20px;
-    box-shadow: 0 0 0 2px #ffffff;
-    background-color: #151515;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 18px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
+    transition: 0.3s;
 }
-
 .home-button:hover {
-    background-color: #202020;
-}
-
-.button{
-    font-family: Helvetica;
-    background-color: #151515;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 18px;
-    font-size: 1.2em;
-    cursor: pointer;
-    box-shadow: 0 0 0 2px #ffffff;
-    border: none;
-    margin: 5px;
-}
-
-.button:hover{
-    background-color: #202020;
-}
-
-.container {
-    position: relative;
-    z-index: 2;
-    max-width: 1000px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
-    color: white; 
-}
-
-.section-header {
-    margin-bottom: 15px;
-    align-items: center;
-}
-
-.section-header p {
-    font-family: Helvetica;
-    font-size: 18px;
-    color: #fff;
-    line-height: 1.6;
-}
-
-.content {
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: 30px; 
-    text-align: left;
-    color: #fff;
-}
-
-.text{
-    font-size: 5px;
+    background: white;
+    color: #141E30;
 }
