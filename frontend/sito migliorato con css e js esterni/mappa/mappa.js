@@ -37,6 +37,8 @@ const provinceCities = {
             { name: "Apricena", lat: 41.7862, lng: 15.4439 },
             { name: "San Marco In Lamis", lat: 41.7121, lng: 15.6382},
             { name: "Cagnano Varano", lat: 41.8283, lng: 15.7720 },
+            { name: "Peschici", lat: 41.9452, lng: 16.0161 },
+            { name: "Rignano Garganico", lat: 41.6793, lng: 15.5883}
             
         ]
     },
@@ -96,21 +98,85 @@ const cityStops = {
 "Foggia": [
   { name: "Piazza Vittorio Veneto", lat: 41.465225, lng: 15.555756 },
   { name: "Foggia Aeroporto Gino Lisa", lat: 41.433907, lng: 15.544482 },
-  { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 }
+  { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 },
+  { name: "Via Umberto Garofalo", lat: 41.460912, lng: 15.549300 },
+  { name: "Viale Michelangelo", lat: 41.456214, lng: 15.559519 },
+  { name: "Via Napoli (Ospedale Civile)", lat: 41.454972, lng: 15.525877 },
+  { name: "Via Manfredonia (sede Polizia Provinciale )", lat: 41.482478, lng: 15.560085},
+  { name: "Via Montegrappa 40 (deposito SITA)", lan: 41.463445, lng: 15.556866},
 ],
-"Lecce": [
-  { name: "Lecce Bus Station (Terminal)", lat: 40.3530, lng: 18.1750 },
-  { name: "Centro Storico – Via del Duomo", lat: 40.3540, lng: 18.1740 }
-],
+
 "Manfredonia": [
   { name: "Piazza Cavour", lat: 41.6340, lng: 15.9155 },
-  { name: "Via Napoli", lat: 41.6330, lng: 15.9170 }
+  { name: "Via Napoli", lat: 41.6330, lng: 15.9170 },
+  { name: "PIAZZA DELLA LIBERTA'", lat: 41.623195, lng: 15.907353 },
+  { name: "VIA TRIBUNA 16", lat: 41.628407, lng: 15.914610 },
+  { name: "Via della Transumanza", lat: 41.635239, lng: 15.900518 },
+  { name: "Via Gargano", lat: 41.636910, lng: 15.925743 },
+  { name: "Piazza Marconi", lat: 41.626514, lng: 15.913463 },
+  { name: "Via Scaloria", lat: 41.635505, lng: 15.911222 },
 ],
+"San Marco In Lamis": [
+  { name: "Via S. Nicandro", lat: 41.715264, lng: 15.635379 },
+  { name: "Piazza Europa", lat: 41.711428, lng: 15.634779 },
+  { name: "Via Gian Battista Vico", lat: 41.712041, lng: 15.640573 },
+],
+"San Nicandro Garganico": [
+  { name: "Via Guglielmo Marconi", lat: 41.832674, lng: 15.566312 },
+  { name: "Piazza Falcone e Borsellino", lat: 41.841059, lng: 15.565508},
+  { name: "Via Gargano 50", lat: 41.834189, lng: 15.571121 },
+  { name: "Via Gramsci 128", lat: 41.836275, lng: 15.567666 },
+  { name: "Via Gramsci 78", lat: 41.835184, lng: 15.569097 }
+],
+
+"Monte Sant'Angelo": [
+    { name: "Piazza Duca D'Aosta", lat: 41.706516, lng: 15.960002   },
+    { name: "Via della Repubblica", lat: 41.707059, lng: 15.949088}
+],
+
+"Cerignola": [
+    { name: "Viale dei Mandorli", lat: 41.260295, lng: 15.908279 },
+    { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
+    { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
+    { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
+],
+
+"Lucera": [
+    { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
+    { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
+    { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
+],
+
+"Rignano Garganico": [
+    { name: "Largo Portagrande", lat: 41.675714, lng: 15.586341 },
+    { name: "Via Nazionale 28", lat: 41.677181, lng: 15.587623},
+    { name: "Via da Vinci 71", lat: 41.679004, lng: 15.589785}
+],
+
+"San Severo": [
+    { name: "Viale dei Mandorli", lat: 41.260295, lng: 15.908279 },
+    { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
+    { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
+    { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
+],
+
 "Bari": [
   { name: "Bari Bus Terminal (Centro)", lat: 41.1170, lng: 16.8710 },
   { name: "Bari – Aeroporto", lat: 41.1389, lng: 16.7592 },
   { name: "Bari – Via Venezia", lat: 41.1200, lng: 16.8700 }
+],
+
+"Lecce": [
+  { name: "Lecce Bus Station (Terminal)", lat: 40.3530, lng: 18.1750 },
+  { name: "Centro Storico – Via del Duomo", lat: 40.3540, lng: 18.1740 },
+  { name: "Piazza Muratore Francesco 1 (Ospedale V. Fazzi)", lat: 40.331780, lng: 18.158432},
+  { name: "Via Don Bosco", lat: 40.346708, lng: 18.166274},
+  { name: "Lecce Terminal City", lat: 40.362950, lng: 18.168430},
+  { name: "City Terminal Piazza Carmelo bene", lat: 40.362112, lng: 18.167727},
+  { name: "Viale Otranto 1 (Questura)", lat: 40.346838, lng: 18.171206},
+  { name: "Viale Oronzo Quarta", lat: 40.346377, lng: 18.166392}
 ]
+
 };
 function initMap() {
     map = L.map('map').setView([41.7064, 15.7277], 10); // Posizione iniziale su San Giovanni Rotondo
@@ -208,3 +274,33 @@ function toggleStops() {
 function goHome() {
     window.location.href = "/homePage/homePage.html"; 
 }
+/*
+function openNav() {
+    // Aggiorna la sidebar con i dati selezionati
+    const provinceSelect = document.getElementById("province");
+    const citySelect = document.getElementById("cities");
+    const stopSelect = document.getElementById("stops");
+    const provaSelect = document.getElementById("prova");
+
+    const selectedProvince = provinceSelect.value;
+    const selectedCity = citySelect.value;
+    const selectedStop = stopSelect.options[stopSelect.selectedIndex].text;
+    const selectedProva = provaSelect.value;
+    console.log(selectedProva);
+
+    document.getElementById("selectedProvince").textContent = selectedProvince;
+    document.getElementById("selectedCity").textContent = selectedCity;
+    document.getElementById("selectedStop").textContent = selectedStop;
+    document.getElementById("selectedProva").textContent = selectedProva;
+
+    // Apre la sidebar
+    document.getElementById("sidebar").style.width = "320px";//Aumenta la dimensione della sidebar
+}*/
+function openNav() {
+    document.getElementById("sidebar").style.width = "340px"; // Aumenta la dimensione della sidebar
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+}
+
