@@ -272,7 +272,7 @@ function toggleStops() {
 }
 
 function goHome() {
-    window.location.href = "/homePage/homePage.html"; 
+    window.location.href = "../homepage/homePage.html"; 
 }
 /*
 function openNav() {
