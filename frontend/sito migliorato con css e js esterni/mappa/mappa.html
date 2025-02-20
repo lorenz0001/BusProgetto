@@ -17,7 +17,7 @@
 
         <label for="province">Provincia:</label>
       <select id="province" onchange="updateCities()">
-          <option value="">-- Seleziona una provincia --</option>
+          <option value="">Seleziona una provincia</option>
           <option value="Bari">Bari</option>
           <option value="Brindisi">Brindisi</option>
           <option value="Foggia">Foggia</option>
@@ -28,19 +28,31 @@
 
         <label for="cities">Città:</label>
       <select id="cities" onchange="updateStops()">
-          <option value="">-- Seleziona una città --</option>
+          <option value="">Seleziona una città</option>
       </select>
 
         <label for="stops">Fermata:</label>
         <select id="stops" onchange="updateMap()">
-            <option value="">-- Seleziona una fermata --</option>
+            <option value="">Seleziona una fermata</option>
         </select>
 
-        <div class="button-container">
-            <button onclick="confirmSelection()">Conferma Selezione</button>
+        <div id="buttone_conferma">
+            <button id="openSidebar" onclick="openNav()">Conferma Selezione</button>
         </div>
 
-        <div id="map"></div>
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <h1>Prossimo pullman in arrivo</h1>
+
+        <div>
+            <label><h2>NOME</h2></label><br>
+            <label><h2>ORARIO DI ARRIVO</h2></label><br>
+            <label><h2>STAZIONE DI ARRIVO</h2></label>
+        </div>
+     
+    </div>
+    
+    <div id="map"></div>
     </div>
 </body>
 </html>
