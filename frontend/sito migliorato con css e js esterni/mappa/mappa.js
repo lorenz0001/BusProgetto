@@ -1,3 +1,4 @@
+
 const provinceCities = {
     "Foggia": { 
         cities: [
@@ -93,14 +94,17 @@ const cityStops = {
     { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
     { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
 ],
-/*
+
 "Ortanova": [
-    { name " ", lat: , lng: },
+    { name: "Stazione Ortanova", lat: 41.350278, lng:15.731984},
 ],
 
 "Torremaggiore":[
-    { name " ", lat: , lng: },
-],*/
+    { name: "Via Gorizia", lat: 41.693756, lng: 15.285346},
+    { name: "Viale Aldo Moro (Piazzale Palma)", lat: 41.691289, lng: 15.291955},
+    { name: "Villa comunale", lat: 41.691289, lng: 15.291961},
+    { name: "Viale Aldo Moro (scuola elementare Ricci)", lat: 41.692558, lng: 15.299820}
+],
 
 "San Nicandro Garganico": [
   { name: "Via Guglielmo Marconi", lat: 41.832674, lng: 15.566312 },
@@ -149,51 +153,62 @@ const cityStops = {
 ],
 
 "Vico del Gargano": [
-    { name: "Stazione Ferroviaria Calenella", lat: 41.936513, lng: 15.985401},
+    { name: "Stazione ferroviaria Calenella", lat: 41.936513, lng: 15.985401},
     { name: "Via Pineta Marzini", lat: 41.937986, lng: 15.960907},
     { name: "Stazione Vico - San Menaio", lat: 41.936154, lng: 15.946486}
 ],
 
 "Mattinata": [
-    { name " ", lat: , lng: },
+    { name: "Via Madonna Incoronata ", lat: 41.713377, lng: 16.051517},
+    { name: "Corso Matino ", lat: 41.707052, lng: 16.047358},
+    { name: "Via San Michele Arcangelo ", lat: 41.706920, lng: 16.047278}
 ],
 
 "Ascoli Satriano": [
-    { name " ", lat: , lng: },
+    { name: "Largo Donatori di Sangue", lat: 41.206961, lng: 15.561654},
+    { name: "Via Cerignola 46", lat: 41.200951, lng: 15.565024},
+    { name: "Scalo Ferroviario", lat: 41.219404, lng: 15.548059}
 ],
 
 "Ischitella": [
-    { name " ", lat: , lng: },
+    { name: "Stazione ferroviaria", lat: 41.914273, lng: 15.849277},
 ],
 
 "Carpino": [
-    { name " ", lat: , lng: },
+    { name: "Stazione ferroviaria", lat: 41.854174, lng: 15.820634},
+    { name: "Piazza del Popolo", lat: 41.844477, lng: 15.857188},
+    { name: "Via della Repubblica 46(capolinea)", lat: 41.846446, lng: 15.859509}
 ],
 
 "Rodi Garganico": [
-    { name " ", lat: , lng: },
+    { name: "Stazione ferroviaria", lat: 41.929273, lng: 15.890638},
 ],
 
 "Zapponeta": [
-    { name " ", lat: , lng: },
+    { name: "Corso Manfredonia (ingresso) ", lat: 41.457321, lng: 15.955946},
+    { name: "Corso Manfredonia (centro) ", lat: 41.455291, lng: 15.958925},
+    { name: "Zapponeta cimitero ", lat: 41.450645, lng: 15.966252}
 ],
 
 "Poggio Imperiale": [
-    { name " ", lat: , lng: },
+    { name: "Via Foggia 4", lat: 41.821540, lng: 15.366055},
+    { name: "Stazione ferroviaria", lat: 41.807623, lng: 15.351163}
 ],
 
 "Sant'Agata di Puglia": [
-    { name " ", lat: , lng: },
+    { name: "Via Perillo San Nicola ", lat: 41.153682, lng: 15.379085},
 ],
 
 "Lesina": [
-    { name " ", lat: , lng: },
+    { name: "Via Poggio Imperiale", lat: 41.859638, lng: 15.355532},
+    { name: "Corso Vittorio Emanuele 125", lat: 41.860550, lng: 15.355060},
+    { name: "Piazza Lombardi", lat: 41.862822, lng: 15.353238}
 ],
 
 "Troia":[
-    { name " ", lat: , lng: },
+    { name: "Piazzale Martiri d'Ungheria", lat: 41.359959, lng: 15.304650}
 ],
-*/
+
 "Monte Sant'Angelo": [
     { name: "Piazza Duca D'Aosta", lat: 41.706516, lng: 15.960002   },
     { name: "Via della Repubblica", lat: 41.707059, lng: 15.949088}
