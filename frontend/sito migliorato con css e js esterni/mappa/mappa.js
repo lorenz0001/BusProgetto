@@ -1,27 +1,4 @@
 const provinceCities = {
-    "Bari": { 
-        cities: [
-            { name: "Bari", lat: 41.1252, lng: 16.8666 },
-            { name: "Bitonto", lat: 41.1166, lng: 16.6833 },
-            { name: "Molfetta", lat: 41.2000, lng: 16.6000 },
-            { name: "Triggiano", lat: 41.0655, lng: 16.9250 },
-            { name: "Altamura", lat: 40.8166, lng: 16.5499 },
-            { name: "Modugno", lat: 41.0945, lng: 16.7959 },  
-            { name: "Monopoli", lat: 40.9570, lng: 17.2904}, 
-
-        ]
-    },
-    "Brindisi": { 
-        cities: [
-            { name: "Brindisi", lat: 40.6322, lng: 17.9361 },
-            { name: "Ostuni", lat: 40.7248, lng: 17.5792 },
-            { name: "Francavilla Fontana", lat: 40.5312, lng: 17.5852 },
-            { name: "Mesagne", lat: 40.5585, lng: 17.8077 },
-            { name: "Carovigno", lat: 40.7063, lng: 17.6585 },
-            { name: "Fasano", lat: 40.8381, lng: 17.3584 },
-
-        ]
-    },
     "Foggia": { 
         cities: [
             { name: "Foggia", lat: 41.4617, lng: 15.5450 },
@@ -38,47 +15,36 @@ const provinceCities = {
             { name: "San Marco In Lamis", lat: 41.7121, lng: 15.6382},
             { name: "Cagnano Varano", lat: 41.8283, lng: 15.7720 },
             { name: "Peschici", lat: 41.9452, lng: 16.0161 },
-            { name: "Rignano Garganico", lat: 41.6793, lng: 15.5883}
-            
+            { name: "Rignano Garganico", lat: 41.6793, lng: 15.5883},        
+            { name: "Vico del Gargano", lat: 41.8950 ,lng: 15.9582 },
+            { name: "Mattinata", lat: 41.7101,lng: 16.0515},
+            { name: "Ascoli Satriano", lat: 41.2071,lng: 15.5624},
+            { name: "Ischitella", lat: 41.9049,lng: 15.9002},
+            { name: "Carpino", lat: 41.8431,lng: 15.8578},
+            { name: "Rodi Garganico", lat: 41.9285,lng: 15.8842},
+            { name: "Zapponeta", lat: 41.4581,lng: 15.9579},
+            { name: "Poggio Imperiale", lat: 41.8261,lng: 15.3662},
+            { name: "Sant'Agata di Puglia", lat: 41.1509,lng: 15.3801},
+            { name: "Lesina", lat: 41.8627,lng: 15.3531},
+            { name: "Troia", lat: 41.3611,lng: 15.3088}
         ]
-    },
-    "Lecce": { 
-        cities: [
-            { name: "Lecce", lat: 40.3491, lng: 18.1720 },
-            { name: "Gallipoli", lat: 40.0558, lng: 17.9926 },
-            { name: "Otranto", lat: 40.1479, lng: 18.4868 },
-            { name: "Nardò", lat: 40.1795, lng: 18.0317 },
-            { name: "Galatina", lat: 40.1742, lng: 18.1703 },
-            { name: "Copertino", lat: 40.2682, lng: 18.0543 },
-            { name: "Tricase", lat: 39.9301, lng: 18.3542 },
-        ]
-    },
-    "Taranto": { 
-        cities: [
-            { name: "Taranto", lat: 40.4666, lng: 17.2333 },
-            { name: "Grottaglie", lat: 40.5369, lng: 17.4372 },
-            { name: "Martina Franca", lat: 40.7028, lng: 17.3392 },
-            { name: "Massafra", lat: 40.5862, lng: 17.1164 },
-            { name: "Ginosa", lat: 40.5769, lng: 16.7565 },
-
-        ]
-    },
-    "BAT": { 
-     cities: [
-        { name: "Barletta", lat: 41.3166, lng: 16.2833 },   
-        { name: "Andria", lat: 41.2306, lng: 16.2932 },     
-        { name: "Trani", lat: 41.2666, lng: 16.4166 },      
-        { name: "Margherita di Savoia", lat: 41.3717, lng: 16.1527 },   
-        { name: "Trinitapoli", lat: 41.3595, lng: 16.0819 }, 
-        { name: "Bisceglie", lat: 41.2411, lng: 16.4949 },  
-        { name: "Canosa di Puglia", lat: 41.2224, lng: 16.0660 }         
-      ]
     }
 };
 
 let map;
 let marker;
 const cityStops = {
+    "Foggia": [
+  { name: "Piazza Vittorio Veneto", lat: 41.465225, lng: 15.555756 },
+  { name: "Foggia Aeroporto Gino Lisa", lat: 41.433907, lng: 15.544482 },
+  { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 },
+  { name: "Via Umberto Garofalo", lat: 41.460912, lng: 15.549300 },
+  { name: "Viale Michelangelo", lat: 41.456214, lng: 15.559519 },
+  { name: "Via Napoli (Ospedale Civile)", lat: 41.454972, lng: 15.525877 },
+  { name: "Via Manfredonia (sede Polizia Provinciale )", lat: 41.482478, lng: 15.560085},
+  { name: "Via Montegrappa 40 (deposito SITA)", lan: 41.463445, lng: 15.556866},
+],
+
 "San Giovanni Rotondo": [
   { name: "Viale Cappuccini 101 ", lat: 41.7081, lng: 15.7093},
   { name: "Piazza Europa 29 ", lat: 41.7069, lng: 15.7245},
@@ -95,16 +61,6 @@ const cityStops = {
   { name: "Corso Matteotti 20 ", lat: 41.7071, lng: 15.7294},
   { name: "Corso Roma 166 ", lat: 41.7016, lng: 15.7298}
 ],
-"Foggia": [
-  { name: "Piazza Vittorio Veneto", lat: 41.465225, lng: 15.555756 },
-  { name: "Foggia Aeroporto Gino Lisa", lat: 41.433907, lng: 15.544482 },
-  { name: "Foggia Aeroporto (SP105)", lat: 41.434073, lng: 15.545393 },
-  { name: "Via Umberto Garofalo", lat: 41.460912, lng: 15.549300 },
-  { name: "Viale Michelangelo", lat: 41.456214, lng: 15.559519 },
-  { name: "Via Napoli (Ospedale Civile)", lat: 41.454972, lng: 15.525877 },
-  { name: "Via Manfredonia (sede Polizia Provinciale )", lat: 41.482478, lng: 15.560085},
-  { name: "Via Montegrappa 40 (deposito SITA)", lan: 41.463445, lng: 15.556866},
-],
 
 "Manfredonia": [
   { name: "Piazza Cavour", lat: 41.6340, lng: 15.9155 },
@@ -116,6 +72,13 @@ const cityStops = {
   { name: "Piazza Marconi", lat: 41.626514, lng: 15.913463 },
   { name: "Via Scaloria", lat: 41.635505, lng: 15.911222 },
 ],
+
+"Lucera": [
+    { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
+    { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
+    { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
+],
+
 "San Marco In Lamis": [
   { name: "Via S. Nicandro", lat: 41.715264, lng: 15.635379 },
   { name: "Piazza Europa", lat: 41.711428, lng: 15.634779 },
@@ -141,11 +104,7 @@ const cityStops = {
     { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
 ],
 
-"Lucera": [
-    { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
-    { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
-    { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
-],
+
 
 "Rignano Garganico": [
     { name: "Largo Portagrande", lat: 41.675714, lng: 15.586341 },
@@ -158,25 +117,7 @@ const cityStops = {
     { name: "Piazza Libertà", lat: 41.262852, lng: 15.898112},
     { name: "Via Gen. dalla Chiesa", lat: 41.262600, lng: 15.912643},
     { name: "Via Puglie 8", lat: 41.262103, lng: 15.903314}
-],
-
-"Bari": [
-  { name: "Bari Bus Terminal (Centro)", lat: 41.1170, lng: 16.8710 },
-  { name: "Bari – Aeroporto", lat: 41.1389, lng: 16.7592 },
-  { name: "Bari – Via Venezia", lat: 41.1200, lng: 16.8700 }
-],
-
-"Lecce": [
-  { name: "Lecce Bus Station (Terminal)", lat: 40.3530, lng: 18.1750 },
-  { name: "Centro Storico – Via del Duomo", lat: 40.3540, lng: 18.1740 },
-  { name: "Piazza Muratore Francesco 1 (Ospedale V. Fazzi)", lat: 40.331780, lng: 18.158432},
-  { name: "Via Don Bosco", lat: 40.346708, lng: 18.166274},
-  { name: "Lecce Terminal City", lat: 40.362950, lng: 18.168430},
-  { name: "City Terminal Piazza Carmelo bene", lat: 40.362112, lng: 18.167727},
-  { name: "Viale Otranto 1 (Questura)", lat: 40.346838, lng: 18.171206},
-  { name: "Viale Oronzo Quarta", lat: 40.346377, lng: 18.166392}
 ]
-
 };
 function initMap() {
     map = L.map('map').setView([41.7064, 15.7277], 10); // Posizione iniziale su San Giovanni Rotondo
@@ -191,7 +132,7 @@ function updateCities() {
     const citySelect = document.getElementById("cities");
     const selectedProvince = provinceSelect.value;
 
-    citySelect.innerHTML = "<option value=''>-- Seleziona una città --</option>";
+    citySelect.innerHTML = "<option value=''>Seleziona una città</option>";
 
     if (selectedProvince) {
         const citiesData = provinceCities[selectedProvince];
@@ -204,10 +145,11 @@ function updateCities() {
     }
 }
 function updateStops() {
+    
   const citySelect = document.getElementById("cities");
   const stopsSelect = document.getElementById("stops");
   const selectedCity = citySelect.value;
-  stopsSelect.innerHTML = "<option value=''>-- Seleziona una fermata --</option>";
+  stopsSelect.innerHTML = "<option value=''>Seleziona una fermata</option>";
   if (selectedCity && cityStops[selectedCity]) {
   
       cityStops[selectedCity].forEach(stop => {
@@ -223,15 +165,14 @@ function updateStops() {
 }
 
 function updateMap() {
-  const provinceSelect = document.getElementById("province");
+
   const citySelect = document.getElementById("cities");
   const stopSelect = document.getElementById("stops");
-  const selectedProvince = provinceSelect.value;
   const selectedCity = citySelect.value;
-  const selectedStop = stopSelect.value;
+  const selectedStop = stopSelect.value;    
 
-  if (selectedCity && selectedProvince && selectedStop) {
-      const citiesData = provinceCities[selectedProvince];
+  if (selectedCity &&  selectedStop) {
+      const citiesData = provinceCities["Foggia"];
       const selectedCityData = citiesData.cities.find(city => city.name === selectedCity);
       const stopsData = cityStops[selectedCityData.name].find(stop => stop.name === selectedStop );
 
@@ -272,7 +213,7 @@ function toggleStops() {
 }
 
 function goHome() {
-    window.location.href = "../homepage/homePage.html"; 
+    window.location.href = "../homePage/homePage.html"; 
 }
 /*
 function openNav() {
