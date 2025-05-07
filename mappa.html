@@ -21,7 +21,7 @@
       <select id="cities" onchange="updateStops()">
           <option value="">Seleziona una città</option>
           <option value="Foggia">Foggia</option>
-          <option value="San Giovanni Rotondo">San Giovanni Rotondo</option>
+          <option value="San Giovanni Rotondo" selected>San Giovanni Rotondo</option>
           <option value="Manfredonia">Manfredonia</option>
           <option value="Lucera">Lucera</option>
           <option value="Cerignola">Cerignola</option>
@@ -51,6 +51,7 @@
         <label for="stops">Fermata:</label>
         <select id="stops" onchange="updateMap()">
             <option value="">Seleziona una fermata</option>
+            <option value="Viale Cappuccini 101 " data-lat="41.7081" data-lng="15.7093" selected>Viale Cappuccini 101 </option>
         </select>
 
         <div id="buttone_conferma">
