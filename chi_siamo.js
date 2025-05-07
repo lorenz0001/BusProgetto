@@ -1,9 +1,9 @@
 function goHome() {
-    window.location.href = "../homePage/homePage.html"; 
+    window.location.href = "index.html"; 
 }
 function goService(){
-    window.location.href = "/supporto clienti/supportoClienti.html";
+    window.location.href = "./supportoClienti.html";
 }
 function goForum(){
-    window.location.href = "/forum/forum.html";
+    window.location.href = "./forum.html";
 }

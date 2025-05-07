@@ -310,7 +310,7 @@ function toggleStops() {
 }
 
 function goHome() {
-    window.location.href = "../homePage/homePage.html"; 
+    window.location.href = "./index.html"; 
 }
 /*
 function openNav() {
