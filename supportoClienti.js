@@ -1,3 +1,3 @@
 function goHome() {
-    window.location.href = "../homePage/homePage.html"; 
+    window.location.href = "./index.html"; 
 }
