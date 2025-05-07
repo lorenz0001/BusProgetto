@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona Provincia e Città - Puglia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="mappa.css">
+
+    <script type="text/javascript" src="mappa.js"></script>
+</head>
+<body onload="initMap()">
+    <button class="home-button" onclick="goHome()"><img src="immagini/torna-home.png"></button>
+    <div class="container">
+        <h1>Seleziona una Provincia e una Città</h1>
+
+        
+
+        <label for="cities">Città:</label>
+      <select id="cities" onchange="updateStops()">
+          <option value="">Seleziona una città</option>
+          <option value="Foggia">Foggia</option>
+          <option value="San Giovanni Rotondo">San Giovanni Rotondo</option>
+          <option value="Manfredonia">Manfredonia</option>
+          <option value="Lucera">Lucera</option>
+          <option value="Cerignola">Cerignola</option>
+          <option value="San Severo">San Severo</option>
+          <option value="Ortanova">Ortanova</option>
+          <option value="Torremaggiore">Torremaggiore</option>
+          <option value="San Nicandro Garganico">San Nicandro Garganico</option>
+          <option value="Vieste">Vieste</option>
+          <option value="Apricena">Apricena</option>
+          <option value="San Marco In Lamis">San Marco In Lamis</option>
+          <option value="Cagnano Varano">Cagnano Varano</option>
+          <option value="Peschici">Peschici</option>
+          <option value="Rignano Garganico">Rignano Garganico</option>
+          <option value="Vico del Gargano">Vico del Gargano</option>
+          <option value="Mattinata">Mattinata</option>
+          <option value="Ascoli Satriano">Ascoli Satriano</option>
+          <option value="Ischitella">Ischitella</option>
+          <option value="Carpino">Carpino</option>
+          <option value="Rodi Garganico">Rodi Garganico</option>
+          <option value="Zapponeta">Zapponeta</option>
+          <option value="Poggio Imperiale">Poggio Imperiale</option>
+          <option value="Sant'Agata di Puglia">Sant'Agata di Puglia</option>
+          <option value="Lesina">Lesina</option>
+          <option value="Troia">Troia</option>
+      </select>
+
+        <label for="stops">Fermata:</label>
+        <select id="stops" onchange="updateMap()">
+            <option value="">Seleziona una fermata</option>
+        </select>
+
+        <div id="buttone_conferma">
+            <button class="button" onclick="openNav()">Conferma Selezione</button>
+        </div>
+
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+        <h1>Prossimo pullman in arrivo</h1>
+
+        <div>
+            <label><h2>NOME</h2></label><br>
+            <label><h2>ORARIO DI ARRIVO</h2></label><br>
+            <label><h2>STAZIONE DI ARRIVO</h2></label>
+        </div>
+     
+    </div>
+    
+    <div id="map"></div>
+    </div>
+</body>
+</html>

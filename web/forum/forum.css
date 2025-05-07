@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #141E30, #243B55);
+}
+
+.home-button {
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
+}
+
+.home-button img{
+    width: 80px;
+}
